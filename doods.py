@@ -20,7 +20,13 @@ try:
     detectors['pytorch'] = PyTorch
 except ModuleNotFoundError:
     logger.info('PyTorch not installed...')
-
+    
+try:
+    from detectors.tensorrt import TensorRT
+    detectors['tensorrt'] = TensorRT
+except ModuleNotFoundError:
+    logger.info('PyTorch not installed...')
+    
 try:
     from detectors.deepstack import DeepStack
     detectors['deepstack'] = DeepStack
